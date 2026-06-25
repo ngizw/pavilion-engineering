@@ -7,5 +7,23 @@
     "plotArea": "548.00 SQM",
     "builtUpArea": "853.205 SQM",
     "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "title": "Commercial Grid Infrastructure Deployment",
+    "location": "Kimironko, Gasabo, Kigali",
+    "upi": "",
+    "status": "Ongoing",
+    "plotArea": "N/A",
+    "builtUpArea": "Regional Substation",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "title": "Urban Roadways & Transport Networks",
+    "location": "Kigali Urban Core",
+    "upi": "Pending",
+    "status": "Ongoing",
+    "plotArea": "N/A",
+    "builtUpArea": "Site Grading Phase",
+    "image": "broken-link-test.jpg"
   }
 ]
