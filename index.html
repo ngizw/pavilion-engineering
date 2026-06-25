@@ -206,29 +206,33 @@
 
     <!-- AUTOMATIC PORTFOLIO JAVASCRIPT -->
     <script>
-        // Temporary placeholder data array. When the CMS is linked, this can pull from 'projects.json' instead.
-        const defaultProjects = [
-            {
-                title: "Multi-Unit Residential Complex Design",
-                location: "Nyarurama, Gatenga, Kicukiro",
-                upi: "1/03/02/04/6286",
-                status: "Finished",
-                plotArea: "548.00 SQM",
-                builtUpArea: "853.205 SQM",
-                image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80"
-            }
-        ];
-
+        let projects = [];
         let activeFilter = 'All';
+
+        // Automatically fetch the projects data from your repository
+        async function loadPortfolio() {
+            const grid = document.getElementById('project-grid');
+            try {
+                // Fetching the projects.json file directly from your root directory
+                const response = await fetch('./projects.json');
+                if (!response.ok) throw new Error('Failed to load projects file');
+                
+                projects = await response.json();
+                renderGrid('All');
+            } catch (error) {
+                console.error(error);
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-red-400">Error loading portfolio content.</div>`;
+            }
+        }
 
         function renderGrid(filterValue) {
             const grid = document.getElementById('project-grid');
             grid.innerHTML = '';
 
-            const filtered = defaultProjects.filter(p => filterValue === 'All' || p.status === filterValue);
+            const filtered = projects.filter(p => filterValue === 'All' || p.status === filterValue);
 
             if(filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400">No ongoing projects listed right now.</div>`;
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400">No projects listed under this category right now.</div>`;
                 return;
             }
 
@@ -237,15 +241,15 @@
                 grid.innerHTML += `
                     <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
                         <div class="h-48 bg-gray-200 relative">
-                            <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover">
+                            <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80'">
                             <span class="absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full ${badgeColor}">${p.status}</span>
                         </div>
                         <div class="p-6">
                             <h4 class="font-bold text-gray-900 mb-1 text-lg">${p.title}</h4>
                             <p class="text-xs text-gray-400 mb-4">${p.location} ${p.upi ? '| UPI: '+p.upi : ''}</p>
                             <div class="grid grid-cols-2 gap-2 text-xs border-t pt-4 border-gray-50 text-gray-500">
-                                <div><span class="block text-gray-400">Plot Area:</span> ${p.plotArea}</div>
-                                <div><span class="block text-gray-400">Built-Up Area:</span> ${p.builtUpArea}</div>
+                                <div><span class="block text-gray-400">Plot Area:</span> ${p.plotArea || 'N/A'}</div>
+                                <div><span class="block text-gray-400">Built-Up Area:</span> ${p.builtUpArea || 'N/A'}</div>
                             </div>
                         </div>
                     </div>
@@ -266,8 +270,8 @@
             renderGrid(status);
         }
 
-        // Initial launch render
-        window.onload = () => renderGrid('All');
+        // Initialize on page load
+        window.onload = loadPortfolio;
     </script>
 </body>
 </html>
