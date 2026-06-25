@@ -176,28 +176,33 @@
                         <p><span class="text-secondary font-bold">Email:</span> pavilionengineering.ltd@gmail.com</p>
                     </div>
 
-                    <div class="mt-8 pt-8 border-t border-slate-800 grid grid-cols-2 gap-4">
-                        <div>
-                            <span class="text-xs text-slate-500 block uppercase">Managing Director</span>
-                            <span class="font-medium text-white text-base">Sylvestre Robert TUBEMASO</span>
-                        </div>
-                        <div>
-                            <span class="text-xs text-slate-500 block uppercase">Lead Engineer</span>
-                            <span class="font-medium text-white text-base">Wimana Florien</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-4">Partner With Us</h3>
-                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Inquiry recorded.');">
-                        <input type="text" placeholder="Company Name" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white text-sm focus:outline-none">
-                        <textarea placeholder="Message Summary" rows="4" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white text-sm focus:outline-none"></textarea>
-                        <button type="submit" class="w-full bg-primary hover:bg-blue-800 text-white font-semibold py-2 rounded-lg text-sm transition">Submit Strategic Inquiry</button>
-                    </form>
-                </div>
-            </div>
+                  <div class="bg-white/5 border border-white/10 p-8 rounded-2xl">
+    <h3 class="text-xl font-bold mb-4">Partner With Us</h3>
+    <!-- Change the action URL below after choosing your provider -->
+    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+        
+        <!-- Web3Forms Access Key (Get a free one at web3forms.com) -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <!-- Automatically redirects visitor back to your site after success -->
+        <input type="hidden" name="redirect" value="https://ngizw.github.io/pavilion-engineering/">
+        
+        <div>
+            <label class="text-xs text-slate-400 block mb-1">Your Name / Organization</label>
+            <input type="text" name="name" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:border-secondary">
         </div>
+        <div>
+            <label class="text-xs text-slate-400 block mb-1">Contact Email Address</label>
+            <input type="email" name="email" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:border-secondary">
+        </div>
+        <div>
+            <label class="text-xs text-slate-400 block mb-1">Strategic Message Summary</label>
+            <textarea name="message" rows="4" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:border-secondary"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-primary hover:bg-blue-800 text-white font-semibold py-2 rounded-lg text-sm transition shadow-md">
+            Submit Strategic Inquiry
+        </button>
+    </form>
+</div>
     </section>
 
     <footer class="bg-dark text-slate-500 text-xs py-6 text-center">
