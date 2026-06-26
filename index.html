@@ -100,7 +100,7 @@
     .hero-section {
       position: relative;
       height: 85vh; 
-      background-image: url('cover_page2.jpg'); 
+      background-image: url('Images/cover_page2.jpg'); /* Working background image directory path */
       background-size: cover; 
       background-position: center; 
       background-repeat: no-repeat;
@@ -262,6 +262,102 @@
     .card-body h3 { font-size: 1.25rem; margin-bottom: 10px; color: #ffffff; }
     .project-meta { font-size: 0.85rem; color: #cbd5e1; margin-bottom: 6px; }
     .project-meta strong { color: #f39c12; }
+
+    /* Interactive Contact Row Styling */
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .contact-info-panel {
+      background-color: rgba(255, 255, 255, 0.03);
+      padding: 30px;
+      border-radius: 8px;
+      border-left: 3px solid #1ea362;
+    }
+
+    .contact-info-panel h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .info-item {
+      margin-bottom: 18px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    .info-item strong {
+      color: #f39c12;
+      display: block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+
+    /* Email Message Box Styling */
+    .email-box-panel {
+      background-color: #ffffff;
+      padding: 35px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .email-box-panel h3 {
+      color: #333333;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #555555;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      color: #333333;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: #0b2265;
+    }
+
+    .btn-submit-form {
+      width: 100%;
+      background-color: #0b2265;
+      color: #ffffff;
+      padding: 14px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .btn-submit-form:hover {
+      background-color: #1a42ba;
+    }
   </style>
 </head>
 <body>
@@ -326,18 +422,72 @@
     </div>
   </section>
 
-  <section id="contact" class="content-section bg-deeper-blue" style="margin-bottom: 60px;">
+  <section id="contact" class="content-section bg-deeper-blue" style="padding-bottom: 100px;">
     <h2>Contact Us</h2>
-    <p>Ready to break ground or need specialized architectural oversight on an upcoming venture? Reach out to our technical administration team.</p>
-    <p>📍 <strong>Headquarters:</strong> Kigali, Rwanda</p>
-    <p>📧 <strong>Email Support:</strong> info@pavilionengineering.com</p>
+    <p>Connect directly with our corporate management office to discuss procurement frameworks, public utility builds, or private real estate tenders.</p>
+    
+    <div class="contact-container">
+      
+      <div class="contact-info-panel">
+        <h3>Corporate Information</h3>
+        
+        <div class="info-item">
+          <strong>Registered Head Office</strong>
+          Kimironko, Gasabo, Umujyi wa Kigali, Rwanda [cite: 9, 22]
+        </div>
+        
+        <div class="info-item">
+          <strong>Direct Corporate Lines</strong>
+          +250 788 512 999 <br>+250 782 644 370 [cite: 10]
+        </div>
+        
+        <div class="info-item">
+          <strong>Official Correspondence Email</strong>
+          pavilionengineering.ltd@gmail.com 
+        </div>
+
+        <div class="info-item">
+          <strong>Executive Leadership</strong>
+          Managing Director: Sylvestre Robert TUBEMASO [cite: 6, 21]<br>
+          Lead Engineer: Wimana Florien [cite: 7]
+        </div>
+      </div>
+
+      <div class="email-box-panel">
+        <h3>Send Direct Message</h3>
+        
+        <form action="https://formspree.io/f/your-formspree-id-here" method="POST">
+          <div class="form-group">
+            <label for="client-name">Full Name or Company</label>
+            <input type="text" id="client-name" name="name" placeholder="e.g., Rwanda Housing Authority" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="client-email">Your Email Address</label>
+            <input type="email" id="client-email" name="_replyto" placeholder="name@company.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="client-subject">Project Scope / Subject</label>
+            <input type="text" id="client-subject" name="subject" placeholder="Structural analysis, tender bid, etc." required>
+          </div>
+          
+          <div class="form-group">
+            <label for="client-message">Message Details</label>
+            <textarea id="client-message" name="message" rows="5" placeholder="Outline your infrastructure goals or parcel UPI requirements..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn-submit-form">Send Email Now</button>
+        </form>
+      </div>
+
+    </div>
   </section>
 
   <script>
     async function loadPortfolio() {
       const container = document.getElementById('projects-container');
       try {
-        // Fetches either project.json or projects.json based on your naming preference
         const res = await fetch('project.json').catch(() => fetch('projects.json'));
         const projects = await res.json();
         
