@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: ngizw/pavilion-engineering
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+collections:
+  - name: "portfolio_data"
+    label: "Website Content Sync"
+    files:
+      - file: "project.json"
+        label: "Projects Portfolio List"
+        name: "projects"
+        fields:
+          - label: "Projects list"
+            name: "projects"
+            widget: "list"
+            fields:
+              - { label: "Project Title", name: "title", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Plot UPI Code", name: "upi", widget: "string", required: false }
+              - { label: "Status", name: "status", widget: "select", options: ["Ongoing", "Finished"] }
+              - { label: "Total Plot Area (SQM)", name: "plotArea", widget: "string", required: false }
+              - { label: "Total Built-Up Area (SQM)", name: "builtUpArea", widget: "string", required: false }
+              - { label: "Project Image Link or Upload", name: "image", widget: "image" }
