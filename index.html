@@ -1,290 +1,231 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pavilion Engineering Ltd | Just Quality</title>
-    
-    <!-- PRIMARY META TAGS -->
-    <meta name="title" content="Pavilion Engineering Ltd | Just Quality">
-    <meta name="description" content="A premier multi-disciplinary engineering and construction firm in Rwanda supplying robust physical infrastructure and elite technical consultancy.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pavilion Engineering Ltd</title>
+  
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-    <!-- OPEN GRAPH / SOCIAL PREVIEWS -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ngizw.github.io/pavilion-engineering/">
-    <meta property="og:title" content="Pavilion Engineering Ltd | Just Quality">
-    <meta property="og: description" content=" Pioneering high-resilience structural infrastructure and elite technical consultancy in East Africa.">
-    <meta property="og:image" content="https://ngizw.github.io/pavilion-engineering/images/logo-preview.jpg">
+    body {
+      background-color: #0b2265;
+      color: #ffffff;
+    }
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#1E3A8A', 
-                        secondary: '#10B981', 
-                        dark: '#111827'
-                    }
-                }
-            }
-        }
-    </script>
+    /* Header & Navigation Bar */
+    header.nav-container {
+      background-color: #ffffff;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-letter {
+      background-color: #0b2265;
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 5px 12px;
+      border-radius: 4px;
+    }
+
+    .logo-text h2 {
+      color: #333333;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .logo-text span {
+      color: #2ecc71;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #555555;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #0b2265;
+    }
+
+    .btn-contact {
+      background-color: #1a42ba;
+      color: #ffffff !important;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .btn-contact:hover {
+      background-color: #112f8a;
+    }
+
+    /* Hero Section with cover_page2.jpg Background */
+    .hero-section {
+      position: relative;
+      height: 85vh; 
+      background-image: url('cover_page2.jpg'); /* References the file name verbatim */
+      background-size: cover; 
+      background-position: center; 
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+    }
+
+    /* Dark Overlay to make text highly readable */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(11, 34, 101, 0.9) 30%, rgba(11, 34, 101, 0.4) 100%);
+      z-index: 1;
+    }
+
+    /* Hero Text Content Grid */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+    }
+
+    .badge-rdb {
+      display: inline-block;
+      background-color: #1ea362;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 25px;
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #e0e6ed;
+      margin-bottom: 35px;
+    }
+
+    .btn-explore {
+      display: inline-block;
+      background-color: #f39c12;
+      color: #ffffff;
+      padding: 14px 35px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-explore:hover {
+      background-color: #d35400;
+    }
+
+    /* Projects Gallery Section Layout */
+    .projects-section {
+      padding: 60px 5%;
+      background-color: #081a4e;
+    }
+
+    .projects-section h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      border-left: 4px solid #f39c12;
+      padding-left: 15px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased font-sans">
-<!-- Hero / Homepage Cover Section -->
-<header class="hero-section">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>Pavilion Engineering Ltd</h1>
-    <p>Delivering high-quality structural engineering and modern construction solutions.</p>
-    <a href="#projects-container" class="btn-primary">View Our Projects</a>
-  </div>
-</header>
-    <!-- NAVIGATION -->
-    <nav class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur shadow-md z-50 transition-all">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <span class="text-3xl font-black text-primary tracking-tighter">P</span>
-                <div>
-                    <span class="text-lg font-bold text-gray-900 block leading-none">Pavilion Engineering Ltd</span>
-                    <span class="text-xs text-secondary font-semibold uppercase tracking-wider">Just Quality</span>
-                </div>
-            </div>
-            <div class="hidden md:flex space-x-8 font-medium">
-                <a href="#about" class="hover:text-primary transition">About</a>
-                <a href="#services" class="hover:text-primary transition">Services</a>
-                <a href="#portfolio" class="hover:text-primary transition">Portfolio</a>
-                <a href="#contact" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-blue-800 transition shadow-sm">Contact Us</a>
-            </div>
-        </div>
+<body>
+
+  <!-- Navigation Bar Header -->
+  <header class="nav-container">
+    <div class="logo-area">
+      <div class="logo-letter">P</div>
+      <div class="logo-text">
+        <h2>Pavilion Engineering Ltd</h2>
+        <span>JUST QUALITY</span>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#" class="btn-contact">Contact Us</a></li>
+      </ul>
     </nav>
+  </header>
 
-   
-    <section class="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-slate-900 to-primary text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="max-w-7xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <span class="bg-secondary/20 text-emerald-300 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 inline-block">Registered under RDB (Code: 103304546)</span>
-                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-                    Pioneering High-Resilience Structural Infrastructure
-                </h1>
-                <p class="text-lg text-slate-300 mb-8 max-w-xl">
-                    A premier, multi-disciplinary engineering and construction firm in Rwanda, supplying robust physical infrastructure and elite technical consultancy.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#portfolio" class="bg-secondary hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition">Explore Projects</a>
-                    <a href="#contact" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-6 py-3 rounded-xl transition">Request Consultation</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Hero Front Cover Section -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="badge-rdb">Registered Under RDB (Code: 103304546)</span>
+      <h1>Pioneering High-Resilience Structural Infrastructure</h1>
+      <p>A premier, multi-disciplinary engineering and construction firm in Rwanda, supplying robust physical infrastructure and elite technical consultancy.</p>
+      <a href="#projects-container" class="btn-explore">Explore Our Portfolio</a>
+    </div>
+  </section>
 
-    <!-- CORPORATE OVERVIEW -->
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Corporate Overview & Strategy</h2>
-                <div class="w-16 h-1 bg-secondary mx-auto rounded"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12 items-start">
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm">
-                    <h3 class="text-xl font-bold text-primary mb-4">Our Vision</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        To stand as the leading multi-disciplinary engineering framework in East Africa, universally recognized for pioneering innovative, sustainable, and high-resilience structural infrastructure that empowers expanding urban landscapes.
-                    </p>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm">
-                    <h3 class="text-xl font-bold text-secondary mb-4">Our Mission</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        To deploy tier-one structural engineering, construction management, and technical design consultancy by working in absolute lockstep with international safety margins, safeguarding aggressive build timelines, and optimizing indigenous professional engineering talents.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Project Automation Target Section -->
+  <section class="projects-section">
+    <h2>Featured Projects</h2>
+    <div id="projects-container" class="projects-grid">
+      <!-- Your live projects app.js file drops data loops right here -->
+    </div>
+  </section>
 
-    <!-- TECHNICAL CAPABILITIES & SERVICES -->
-    <section id="services" class="py-20 bg-gray-50 border-t border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Core Operational Framework</h2>
-                <div class="w-16 h-1 bg-primary mx-auto rounded mt-4"></div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-blue-50 text-primary flex items-center justify-center rounded-xl font-bold text-xl mb-6">01</div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-900">Civil & Heavy Infrastructure</h3>
-                    <ul class="text-gray-600 text-sm space-y-2">
-                        <li>• Transport networks & urban roadways</li>
-                        <li>• Deep earth utilities & water management</li>
-                        <li>• Precision excavation & land grading</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-emerald-50 text-secondary flex items-center justify-center rounded-xl font-bold text-xl mb-6">02</div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-900">Energy & MEP Systems</h3>
-                    <ul class="text-gray-600 text-sm space-y-2">
-                        <li>• Commercial grid infrastructure & substations</li>
-                        <li>• Multi-phase high-voltage setups</li>
-                        <li>• Industrial HVAC installation engineering</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-blue-50 text-primary flex items-center justify-center rounded-xl font-bold text-xl mb-6">03</div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-900">Consultancy & PMO</h3>
-                    <ul class="text-gray-600 text-sm space-y-2">
-                        <li>• Parametric architectural design blueprints</li>
-                        <li>• Project Management Office (PMO) control</li>
-                        <li>• Rigorous quality audits & commissioning</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DYNAMIC PORTFOLIO SECTION -->
-    <section id="portfolio" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Realized Structural Portfolio</h2>
-                <p class="text-gray-500">Active and completed vertical structural operations across Rwanda.</p>
-                <div class="w-16 h-1 bg-secondary mx-auto rounded mt-4"></div>
-            </div>
-
-            <!-- Interactive Filter Controls -->
-            <div class="flex justify-center space-x-4 mb-12">
-                <button onclick="filterProjects('All')" id="btn-All" class="px-6 py-2 rounded-full font-semibold transition bg-primary text-white shadow">All Projects</button>
-                <button onclick="filterProjects('Finished')" id="btn-Finished" class="px-6 py-2 rounded-full font-semibold transition bg-gray-100 text-gray-600 hover:bg-gray-200">Finished</button>
-                <button onclick="filterProjects('Ongoing')" id="btn-Ongoing" class="px-6 py-2 rounded-full font-semibold transition bg-gray-100 text-gray-600 hover:bg-gray-200">Ongoing</button>
-            </div>
-
-            <!-- Dynamic Project Grid Target -->
-            <div id="project-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Fallback content if JavaScript is loading or empty -->
-                <div class="col-span-full text-center py-12 text-gray-400">Loading portfolio updates...</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT & LEADERSHIP -->
-    <section id="contact" class="py-20 bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6">Corporate Information Hub</h2>
-                    <p class="text-slate-400 mb-8">We welcome government, private, and institutional stakeholders to explore strategic partnerships.</p>
-                    
-                    <div class="space-y-4 text-sm">
-                        <p><span class="text-secondary font-bold">HQ:</span> Kimironko, Gasabo, Umujyi wa Kigali, RWANDA</p>
-                        <p><span class="text-secondary font-bold">Tel:</span> +250 788 512 999 / +250 782 644 370</p>
-                        <p><span class="text-secondary font-bold">Email:</span> pavilionengineering.ltd@gmail.com</p>
-                    </div>
-
-                  <div class="bg-white/5 border border-white/10 p-8 rounded-2xl">
-    <h3 class="text-xl font-bold mb-4">Partner With Us</h3>
-    <!-- Change the action URL below after choosing your provider -->
-    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-        
-        <!-- Web3Forms Access Key (Get a free one at web3forms.com) -->
-        <input type="hidden" name="access_key" value="0eedf61f-5458-438e-8f0a-b0a7bc80f671">
-        <!-- Automatically redirects visitor back to your site after success -->
-        <input type="hidden" name="redirect" value="https://ngizw.github.io/pavilion-engineering/">
-        
-        <div>
-            <label class="text-xs text-slate-400 block mb-1">Your Name / Organization</label>
-            <input type="text" name="name" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:border-secondary">
-        </div>
-        <div>
-            <label class="text-xs text-slate-400 block mb-1">Contact Email Address</label>
-            <input type="email" name="email" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:border-secondary">
-        </div>
-        <div>
-            <label class="text-xs text-slate-400 block mb-1">Strategic Message Summary</label>
-            <textarea name="message" rows="4" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:border-secondary"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-primary hover:bg-blue-800 text-white font-semibold py-2 rounded-lg text-sm transition shadow-md">
-            Submit Strategic Inquiry
-        </button>
-    </form>
-</div>
-    </section>
-
-    <footer class="bg-dark text-slate-500 text-xs py-6 text-center">
-        <p>&copy; 2026 Pavilion Engineering Ltd. All Rights Reserved. | Just Quality.</p>
-    </footer>
-
-    <!-- AUTOMATIC PORTFOLIO JAVASCRIPT -->
-    <script>
-        let projects = [];
-        let activeFilter = 'All';
-
-        // Automatically fetch the projects data from your repository
-        async function loadPortfolio() {
-            const grid = document.getElementById('project-grid');
-            try {
-                // Fetching the projects.json file directly from your root directory
-                const response = await fetch('./projects.json');
-                if (!response.ok) throw new Error('Failed to load projects file');
-                
-                projects = await response.json();
-                renderGrid('All');
-            } catch (error) {
-                console.error(error);
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-red-400">Error loading portfolio content.</div>`;
-            }
-        }
-
-        function renderGrid(filterValue) {
-            const grid = document.getElementById('project-grid');
-            grid.innerHTML = '';
-
-            const filtered = projects.filter(p => filterValue === 'All' || p.status === filterValue);
-
-            if(filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400">No projects listed under this category right now.</div>`;
-                return;
-            }
-
-            filtered.forEach(p => {
-                const badgeColor = p.status === 'Finished' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800';
-                grid.innerHTML += `
-                    <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
-                        <div class="h-48 bg-gray-200 relative">
-                            <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80'">
-                            <span class="absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full ${badgeColor}">${p.status}</span>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="font-bold text-gray-900 mb-1 text-lg">${p.title}</h4>
-                            <p class="text-xs text-gray-400 mb-4">${p.location} ${p.upi ? '| UPI: '+p.upi : ''}</p>
-                            <div class="grid grid-cols-2 gap-2 text-xs border-t pt-4 border-gray-50 text-gray-500">
-                                <div><span class="block text-gray-400">Plot Area:</span> ${p.plotArea || 'N/A'}</div>
-                                <div><span class="block text-gray-400">Built-Up Area:</span> ${p.builtUpArea || 'N/A'}</div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        function filterProjects(status) {
-            activeFilter = status;
-            ['All', 'Finished', 'Ongoing'].forEach(type => {
-                const btn = document.getElementById(`btn-${type}`);
-                if(type === status) {
-                    btn.className = "px-6 py-2 rounded-full font-semibold transition bg-primary text-white shadow";
-                } else {
-                    btn.className = "px-6 py-2 rounded-full font-semibold transition bg-gray-100 text-gray-600 hover:bg-gray-200";
-                }
-            });
-            renderGrid(status);
-        }
-
-        // Initialize on page load
-        window.onload = loadPortfolio;
-    </script>
 </body>
 </html>
